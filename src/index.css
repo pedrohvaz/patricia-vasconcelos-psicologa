@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   IDENTIDADE VISUAL — paleta oficial e tipografia
+   ============================================================ */
+@theme {
+  --color-petrol: #09738a;       /* azul-petróleo — destaque principal */
+  --color-petrol-dark: #075f72;  /* hover de botões */
+  --color-navy: #092b5a;         /* azul-marinho — confiança */
+  --color-mint: #9ed1b7;         /* verde-claro */
+  --color-sage: #78a890;         /* verde */
+  --color-sand: #e7d9b4;         /* bege */
+
+  /* neutros de apoio derivados da paleta */
+  --color-cream: #faf7ef;
+  --color-linen: #f3ecdc;
+  --color-ink: #34445e;          /* texto corrido (contraste AA sobre cream/branco/linen) */
+
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-mint);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-petrol);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ============================================================
+   Animações discretas de entrada
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s var(--ease-soft),
+    transform 0.9s var(--ease-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(9 115 138 / 0.35); }
+  50% { box-shadow: 0 0 0 10px rgb(9 115 138 / 0); }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-soft-pulse { animation: none; }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
