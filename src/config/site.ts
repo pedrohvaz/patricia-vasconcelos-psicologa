@@ -28,10 +28,10 @@ export const WHATSAPP_NR1_MESSAGE =
   'Olá, Patrícia! Gostaria de conversar sobre a adequação da minha empresa à NR-1.';
 
 /** Número no formato internacional, somente dígitos (usado no link wa.me). */
-export const WHATSAPP_NUMBER = '5531988400180';
+export const WHATSAPP_NUMBER = '5531971506715';
 
 /** Número formatado para exibição. */
-export const WHATSAPP_DISPLAY = '+55 31 98840-0180';
+export const WHATSAPP_DISPLAY = '+55 31 97150-6715';
 
 export const WHATSAPP_DEFAULT_MESSAGE =
   'Olá, Patrícia! Gostaria de saber mais sobre o atendimento psicológico.';
