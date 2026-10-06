@@ -60,6 +60,22 @@ export const PROFILE_PHOTO: string | null = `${import.meta.env.BASE_URL}images/p
 /** Foto da seção "Sobre mim". `null` mantém o layout sem imagem. */
 export const ABOUT_PHOTO: string | null = `${import.meta.env.BASE_URL}images/patricia-vasconcelos-sobre.webp`;
 
+/** Vídeo e fotos do espaço de atendimento (seção "O espaço"). */
+export const OFFICE_MEDIA = {
+  video: `${import.meta.env.BASE_URL}videos/espaco-atendimento.mp4`,
+  poster: `${import.meta.env.BASE_URL}images/espaco-poster.webp`,
+  stills: [
+    {
+      src: `${import.meta.env.BASE_URL}images/espaco-mesa.webp`,
+      alt: 'Mesa de atendimento do consultório, com cadeira clara, estante de madeira e plantas',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}images/espaco-logo.webp`,
+      alt: 'Parede do consultório com o logotipo e o nome Patrícia Vasconcelos, Psicóloga Clínica',
+    },
+  ],
+} as const;
+
 /**
  * POLÍTICA DE PRIVACIDADE
  * Se existir uma página externa com a política oficial, informe a URL aqui.

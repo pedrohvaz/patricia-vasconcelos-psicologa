@@ -13,6 +13,7 @@ import { Contact } from './components/sections/Contact';
 import { Education } from './components/sections/Education';
 import { Hero } from './components/sections/Hero';
 import { HowItWorks } from './components/sections/HowItWorks';
+import { OfficeSpace } from './components/sections/OfficeSpace';
 
 export default function App() {
   const privacyRef = useRef<HTMLDialogElement>(null);
@@ -41,6 +42,7 @@ export default function App() {
         <ConceptQuote />
         <About />
         <Education />
+        <OfficeSpace />
         <Approach />
         <Audience />
         <CorporateNR1 />
