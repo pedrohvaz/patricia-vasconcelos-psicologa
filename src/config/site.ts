@@ -15,7 +15,17 @@ export const PROFESSIONAL = {
   audience: 'Adolescentes, adultos e idosos',
   approach: 'Logoterapia e Análise Existencial',
   area: 'Saúde Mental Clínica e Corporativa',
+  hrExperience: 'Mais de 18 anos de atuação em Recursos Humanos em grandes empresas',
+  nr1Role: 'Psicóloga e Gestora de NR-1',
 } as const;
+
+/** NR-1 — atualização com riscos psicossociais. */
+export const NR1 = {
+  effectiveDate: '26/05/2026',
+} as const;
+
+export const WHATSAPP_NR1_MESSAGE =
+  'Olá, Patrícia! Gostaria de conversar sobre a adequação da minha empresa à NR-1.';
 
 /** Número no formato internacional, somente dígitos (usado no link wa.me). */
 export const WHATSAPP_NUMBER = '5531988400180';
@@ -63,6 +73,7 @@ export const NAV_ITEMS = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Atuação', href: '#atuacao' },
   { label: 'Abordagem', href: '#abordagem' },
+  { label: 'Empresas', href: '#empresas' },
   { label: 'Atendimento', href: '#atendimento' },
   { label: 'Contato', href: '#contato' },
 ] as const;

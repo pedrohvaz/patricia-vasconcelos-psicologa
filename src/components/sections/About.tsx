@@ -58,8 +58,14 @@ export function About() {
               reflexão por meio do atendimento psicológico online.
             </p>
             <p>
-              Minha formação inclui graduação em Psicologia pela Universidade Federal de São João del-Rei (UFSJ) e
-              Pós-Graduação em Logoterapia e Análise Existencial pela FABAD.
+              Somo mais de 18 anos de atuação em Recursos Humanos em grandes empresas a um olhar clínico e sensível no
+              que diz respeito à saúde mental. Atuo também como Psicóloga e Gestora de NR-1, apoiando empresas no cuidado
+              com a saúde mental, a segurança e a qualidade de vida no trabalho.
+            </p>
+            <p>
+              Minha formação inclui graduação em Psicologia pela Universidade Federal de São João del-Rei (UFSJ),
+              Pós-Graduação em Logoterapia e Análise Existencial pela FABAD, Pós-Graduação em Gestão Estratégica de
+              Pessoas e formação específica em NR-1 reconhecida pelo MEC.
             </p>
           </Reveal>
 

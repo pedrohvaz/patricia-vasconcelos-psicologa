@@ -9,7 +9,7 @@ type LogoProps = { tone?: 'dark' | 'light'; className?: string };
 export function Logo({ tone = 'dark', className = '' }: LogoProps) {
   const light = tone === 'light';
   return (
-    <span className={`flex flex-col leading-none ${className}`}>
+    <span className={`flex flex-col leading-none whitespace-nowrap ${className}`}>
       <span className={`text-[1.05rem] font-medium tracking-[0.02em] sm:text-lg ${light ? 'text-cream' : 'text-navy'}`}>
         {PROFESSIONAL.name}
       </span>

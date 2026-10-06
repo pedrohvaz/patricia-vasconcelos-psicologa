@@ -48,7 +48,7 @@ export function Header() {
       }
     };
 
-    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    const onResize = () => window.innerWidth >= 1280 && setOpen(false);
 
     document.addEventListener('keydown', onKey);
     window.addEventListener('resize', onResize);
@@ -69,18 +69,18 @@ export function Header() {
           : 'border-b border-transparent bg-transparent'
       }`}
     >
-      <Container className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-18' : 'h-20 lg:h-24'}`}>
+      <Container wide className={`flex items-center justify-between gap-8 transition-all duration-500 ${scrolled ? 'h-18' : 'h-20 xl:h-24'}`}>
         <a href="#inicio" aria-label={`${PROFESSIONAL.name} – ${PROFESSIONAL.title}. Voltar ao início`} onClick={() => setOpen(false)}>
           <Logo />
         </a>
 
-        <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-8">
+        <nav aria-label="Navegação principal" className="hidden xl:block">
+          <ul className="flex items-center gap-6 2xl:gap-8">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="relative py-2 text-sm text-navy/80 transition-colors hover:text-petrol after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-petrol after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  className="relative py-2 text-sm whitespace-nowrap text-navy/80 transition-colors hover:text-petrol after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-petrol after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   {item.label}
                 </a>
@@ -89,7 +89,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <a
             href={INSTAGRAM.url}
             target="_blank"
@@ -99,7 +99,7 @@ export function Header() {
           >
             <InstagramIcon className="h-[18px] w-[18px]" />
           </a>
-          <ButtonLink href={WHATSAPP_LINK} external>
+          <ButtonLink href={WHATSAPP_LINK} external className="whitespace-nowrap">
             Agendar atendimento
           </ButtonLink>
         </div>
@@ -107,7 +107,7 @@ export function Header() {
         <button
           ref={toggleRef}
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-full text-navy transition-colors hover:bg-navy/5 lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full text-navy transition-colors hover:bg-navy/5 xl:hidden"
           aria-expanded={open}
           aria-controls="menu-mobile"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
@@ -122,7 +122,7 @@ export function Header() {
         id="menu-mobile"
         ref={panelRef}
         hidden={!open}
-        className="h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-navy/8 bg-cream lg:hidden"
+        className="h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-navy/8 bg-cream xl:hidden"
       >
         <Container className="flex min-h-full flex-col py-8">
           <nav aria-label="Navegação mobile">

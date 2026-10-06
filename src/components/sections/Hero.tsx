@@ -21,6 +21,24 @@ export function Hero() {
       <Container className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7 lg:pr-6">
           <Reveal>
+            <a
+              href="#empresas"
+              className="group mb-8 inline-flex items-center gap-2.5 rounded-full border border-petrol/25 bg-white/70 py-1.5 pr-4 pl-1.5 text-xs text-navy backdrop-blur transition-colors hover:border-petrol"
+            >
+              <span className="shrink-0 rounded-full bg-petrol px-2.5 py-1 text-[0.65rem] font-semibold tracking-wider whitespace-nowrap text-white">
+                NR-1
+              </span>
+              <span>
+                <span className="hidden sm:inline">Para empresas: </span>
+                <span className="font-medium">saúde mental no trabalho</span>
+              </span>
+              <span aria-hidden="true" className="text-petrol transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
+            </a>
+          </Reveal>
+
+          <Reveal>
             <p className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.32em] text-petrol">
               <span aria-hidden="true" className="h-px w-10 bg-petrol/60" />
               Psicologia Clínica
@@ -70,7 +88,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={400}>
-            <dl className="mt-12 grid max-w-lg grid-cols-2 gap-6 border-t border-navy/10 pt-7 text-sm">
+            <dl className="mt-12 grid max-w-xl grid-cols-2 gap-6 border-t border-navy/10 pt-7 text-sm sm:grid-cols-3">
               <div>
                 <dt className="text-xs uppercase tracking-[0.2em] text-petrol">Registro</dt>
                 <dd className="mt-1.5 font-medium text-navy">{PROFESSIONAL.crp}</dd>
@@ -78,6 +96,10 @@ export function Hero() {
               <div>
                 <dt className="text-xs uppercase tracking-[0.2em] text-petrol">Modalidade</dt>
                 <dd className="mt-1.5 font-medium text-navy">{PROFESSIONAL.modality}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.2em] text-petrol">Experiência</dt>
+                <dd className="mt-1.5 font-medium text-navy">+18 anos em RH</dd>
               </div>
             </dl>
           </Reveal>

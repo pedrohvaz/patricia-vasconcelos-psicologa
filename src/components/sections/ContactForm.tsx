@@ -3,10 +3,24 @@ import { CheckCircle2, Send } from 'lucide-react';
 import { buildWhatsAppLink } from '../../config/site';
 import { Button } from '../ui/Button';
 
-type Fields = { nome: string; whatsapp: string; email: string; mensagem: string };
+type Subject = 'atendimento' | 'empresa';
+type Fields = { assunto: Subject; nome: string; whatsapp: string; email: string; mensagem: string };
 type Errors = Partial<Record<keyof Fields, string>>;
 
-const EMPTY: Fields = { nome: '', whatsapp: '', email: '', mensagem: '' };
+const SUBJECTS: { value: Subject; label: string; intro: string }[] = [
+  {
+    value: 'atendimento',
+    label: 'Atendimento psicológico',
+    intro: 'Gostaria de saber mais sobre o atendimento psicológico.',
+  },
+  {
+    value: 'empresa',
+    label: 'Empresa / NR-1',
+    intro: 'Gostaria de conversar sobre parcerias, consultorias ou ações em saúde mental / NR-1 para empresa.',
+  },
+];
+
+const EMPTY: Fields = { assunto: 'atendimento', nome: '', whatsapp: '', email: '', mensagem: '' };
 
 function validate(f: Fields): Errors {
   const errors: Errors = {};
@@ -31,7 +45,7 @@ function formatPhone(value: string) {
 export function buildFormMessage(f: Fields) {
   return [
     `Olá, Patrícia! Meu nome é ${f.nome.trim()}.`,
-    'Gostaria de saber mais sobre o atendimento psicológico.',
+    SUBJECTS.find((x) => x.value === f.assunto)!.intro,
     '',
     `Meu WhatsApp: ${f.whatsapp.trim()}`,
     `Meu e-mail: ${f.email.trim() || 'não informado'}`,
@@ -69,7 +83,7 @@ export function ContactForm({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
     else window.location.href = url;
 
     setSent(true);
-    setFields(EMPTY);
+    setFields((prev) => ({ ...EMPTY, assunto: prev.assunto }));
   };
 
   return (
@@ -86,7 +100,33 @@ export function ContactForm({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
         Ao enviar, sua mensagem será aberta no WhatsApp, pronta para você confirmar.
       </p>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+      <fieldset className="mt-8">
+        <legend className="mb-2 block text-sm font-medium text-navy">Assunto</legend>
+        <div className="grid gap-2 rounded-2xl bg-cream/80 p-1.5 sm:grid-cols-2">
+          {SUBJECTS.map((opt) => (
+            <label
+              key={opt.value}
+              className={`flex min-h-11 cursor-pointer items-center justify-center rounded-xl px-4 py-2.5 text-center text-sm transition-all duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-petrol ${
+                fields.assunto === opt.value
+                  ? 'bg-white font-medium text-navy shadow-[0_6px_16px_-10px_rgb(9_43_90/0.5)]'
+                  : 'text-ink hover:text-navy'
+              }`}
+            >
+              <input
+                type="radio"
+                name="assunto"
+                value={opt.value}
+                checked={fields.assunto === opt.value}
+                onChange={() => setFields((prev) => ({ ...prev, assunto: opt.value }))}
+                className="sr-only"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <div className="mt-5 grid gap-5 sm:grid-cols-2">
         <Field id="nome" label="Nome" required error={errors.nome} className="sm:col-span-2">
           <input
             id="contato-nome"
